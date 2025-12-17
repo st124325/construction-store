@@ -1,5 +1,7 @@
-// Данные товаров загружаются из products-data.js
-// Если файл не загружен, используем старые данные
+// Данные товаров - используем глобальную переменную из products-data.js или определяем здесь
+let products = typeof window.products !== 'undefined' ? window.products : [];
+
+// Если products-data.js не загрузился, используем данные напрямую
 const oldProducts = [
     {
         id: 1,
@@ -138,8 +140,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // Рендеринг товаров
 function renderProducts(filter = 'all') {
     const grid = document.getElementById('productsGrid');
-    currentFilter = filter;
+    if (!grid) {
+        console.error('Элемент productsGrid не найден!');
+        return;
+    }
     
+    if (!products || products.length === 0) {
+        console.error('Массив products пустой!');
+        grid.innerHTML = '<div style="text-align: center; padding: 3rem; color: var(--text-light);"><p>Товары не найдены</p></div>';
+        return;
+    }
+    
+    currentFilter = filter;
     let filteredProducts = products;
     
     if (filter !== 'all') {
