@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СтройМаркет - Интернет-магазин строительных материалов</title>
+    <meta name="description" content="Широкий ассортимент строительных материалов и инструментов. Доставка по всей России. Качество и надежность.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">🔨</span>
+                    <span class="logo-text">СтройМаркет</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Главная</a>
+                    <a href="#catalog">Каталог</a>
+                    <a href="#categories">Категории</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <button class="cart-btn" aria-label="Корзина">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная секция -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Всё для строительства и ремонта</h1>
+                <p class="hero-subtitle">Широкий ассортимент качественных материалов и инструментов по доступным ценам</p>
+                <div class="hero-search">
+                    <input type="text" placeholder="Найти товар..." class="search-input">
+                    <button class="search-submit">Поиск</button>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="feature-icon">🚚</span>
+                        <span>Быстрая доставка</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Гарантия качества</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="feature-icon">💰</span>
+                        <span>Лучшие цены</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Категории -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Категории товаров</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🧱</div>
+                    <h3>Строительные материалы</h3>
+                    <p>Кирпич, блоки, цемент, песок</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <h3>Инструменты</h3>
+                    <p>Электроинструменты, ручной инструмент</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎨</div>
+                    <h3>Отделочные материалы</h3>
+                    <p>Краска, обои, плитка, ламинат</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💡</div>
+                    <h3>Электрика</h3>
+                    <p>Провода, розетки, выключатели, светильники</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🚿</div>
+                    <h3>Сантехника</h3>
+                    <p>Трубы, фитинги, смесители, унитазы</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🪟</div>
+                    <h3>Окна и двери</h3>
+                    <p>Пластиковые окна, входные и межкомнатные двери</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section id="catalog" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Популярные товары</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="materials">Материалы</button>
+                    <button class="filter-btn" data-filter="tools">Инструменты</button>
+                    <button class="filter-btn" data-filter="finishing">Отделка</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Товары будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Огромный ассортимент</h3>
+                    <p>Более 50 000 наименований товаров для строительства и ремонта</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Доставка по всей России</h3>
+                    <p>Доставляем заказы в любой город страны в кратчайшие сроки</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Прямые поставки</h3>
+                    <p>Работаем напрямую с производителями, поэтому цены ниже</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Гарантия на все товары</h3>
+                    <p>Предоставляем официальную гарантию от производителя</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👷</div>
+                    <h3>Консультации специалистов</h3>
+                    <p>Наши менеджеры помогут выбрать подходящие материалы</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Удобная оплата</h3>
+                    <p>Наличные, карта, рассрочка и кредит</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О компании СтройМаркет</h2>
+                    <p>Мы работаем на рынке строительных материалов уже более 15 лет. За это время мы зарекомендовали себя как надежный поставщик качественных материалов и инструментов.</p>
+                    <p>Наш магазин предлагает широкий ассортимент товаров для строительства и ремонта: от цемента и кирпича до современных отделочных материалов и профессионального инструмента.</p>
+                    <p>Мы гордимся тем, что помогаем людям строить и ремонтировать, предоставляя качественные товары по доступным ценам. Наша команда всегда готова помочь вам выбрать именно то, что нужно для вашего проекта.</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">лет на рынке</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">50,000+</span>
+                            <span class="stat-label">товаров</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number">100,000+</span>
+                            <span class="stat-label">довольных клиентов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Адрес магазина</h3>
+                        <p>Москва, ул. Строительная, д. 15<br>Торговый центр "СтройГрад"</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Телефон</h3>
+                        <p>+7 (495) 123-45-67<br>+7 (800) 123-45-67 (бесплатно)</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>info@stroymarket.ru<br>zakaz@stroymarket.ru</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Режим работы</h3>
+                        <p>Пн-Пт: 8:00 - 20:00<br>Сб-Вс: 9:00 - 18:00</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <h3>Задать вопрос</h3>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Ваш вопрос" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>СтройМаркет</h3>
+                    <p>Ваш надежный партнер в строительстве и ремонте</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Покупателям</h4>
+                    <ul>
+                        <li><a href="#">Как сделать заказ</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат товара</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Акции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>+7 (495) 123-45-67</li>
+                        <li>info@stroymarket.ru</li>
+                        <li>Москва, ул. Строительная, д. 15</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 СтройМаркет. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
