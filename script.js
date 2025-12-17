@@ -152,7 +152,7 @@ function renderProducts(filter = 'all') {
     }
     
     grid.innerHTML = filteredProducts.map(product => `
-        <div class="product-card" style="position: relative;">
+        <div class="product-card" style="position: relative;" onclick="window.location.href='product.html?id=${product.id}'">
             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
             <div class="product-image">${product.emoji}</div>
             <div class="product-info">
@@ -163,7 +163,7 @@ function renderProducts(filter = 'all') {
                         <span class="product-price">${formatPrice(product.price)} ₽</span>
                         ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)} ₽</span>` : ''}
                     </div>
-                    <button class="add-to-cart" onclick="addToCart(${product.id})">В корзину</button>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">В корзину</button>
                 </div>
             </div>
         </div>
