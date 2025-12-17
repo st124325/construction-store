@@ -1,5 +1,11 @@
-// Данные товаров
-const products = [
+// Данные товаров загружаются из products-data.js
+// Если файл не загружен, используем пустой массив
+if (typeof products === 'undefined') {
+    var products = [];
+}
+
+// Старые данные для обратной совместимости (если нужно)
+const oldProducts = [
     {
         id: 1,
         name: "Цемент М500",
@@ -173,19 +179,21 @@ function formatPrice(price) {
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
+        if (!cart) cart = [];
         cart.push(product);
         cartCount++;
         updateCartCount();
         
         // Анимация кнопки
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = 'Добавлено!';
-        btn.style.background = '#10b981';
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-        }, 1000);
+        const btn = window.addToCartEvent ? window.addToCartEvent.target : (event ? event.target : null);
+        if (btn) {
+            btn.textContent = 'Добавлено!';
+            btn.style.background = '#10b981';
+            setTimeout(() => {
+                btn.textContent = btn.classList.contains('product-detail-btn-primary') ? 'Добавить в корзину' : 'В корзину';
+                btn.style.background = '';
+            }, 1000);
+        }
     }
 }
 
@@ -305,7 +313,7 @@ function setupEventListeners() {
                 if (filtered.length > 0) {
                     const grid = document.getElementById('productsGrid');
                     grid.innerHTML = filtered.map(product => `
-                        <div class="product-card" style="position: relative;">
+                        <div class="product-card" style="position: relative;" onclick="window.location.href='product.html?id=${product.id}'">
                             ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                             <div class="product-image">${product.emoji}</div>
                             <div class="product-info">
@@ -316,7 +324,7 @@ function setupEventListeners() {
                                         <span class="product-price">${formatPrice(product.price)} ₽</span>
                                         ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)} ₽</span>` : ''}
                                     </div>
-                                    <button class="add-to-cart" onclick="addToCart(${product.id})">В корзину</button>
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">В корзину</button>
                                 </div>
                             </div>
                         </div>
